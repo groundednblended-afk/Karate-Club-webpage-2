@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap');
+
+/* =========================================
+   GLOBAL STYLES & SETUP (The Keep It Simple Rule)
+   ========================================= */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; 
+}
+
+body {
+    /* Rule of 2 Fonts: Inter for reading, Montserrat for shouting */
+    font-family: 'Inter', sans-serif;
+    background-color: #fafafa; 
+    display: flex;
+    min-height: 100vh;
+    color: #1a1a1a; 
+    line-height: 1.6; 
+    position: relative;
+    z-index: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-position: center 50%; 
+    background-size: 600px; 
+    opacity: 0.03; /* Lowered opacity so it doesn't distract from the text */
+    pointer-events: none; 
+    z-index: 0; 
+    background-image: url('images/symbol-placeholder.svg');
+}
+
+/* =========================================
+   1. FIXED TOP BLACK BAR
+   ========================================= */
+.contact-header-bar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    background-color: #050505; /* Deep luxury black, not default #000 */
+    z-index: 5; 
+}
+
+/* =========================================
+   2. SIDEBAR (Premium Dojo Aesthetic)
+   ========================================= */
+.sidebar {
+    width: 300px;
+    /* Replaced bright yellow with a sleek, dark aesthetic */
+    background-color: #0a0a0a; 
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    position: fixed; 
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 100px 30px 40px 30px; /* Pushed text down past the top bar */
+    z-index: 10; 
+    box-sizing: border-box;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+.sidebar a {
+    display: block; 
+    padding: 12px 0;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #888888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+.sidebar a:hover {
+    color: #D4AF37; /* Premium Gold Hover */
+    transform: translateX(8px); /* Subtle nudge, no heavy backgrounds */
+}
+
+/* =========================================
+   3. MAIN CONTENT LAYOUT
+   ========================================= */
+.main-content {
+    flex: 1; 
+    margin-left: 300px; 
+    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    border-top: 80px solid transparent; 
+    background-color: rgba(250, 250, 250, 0.95); 
+}
+
+.page-text {
+    padding: 60px 8%; 
+    max-width: 65ch; /* Strict editorial line-length limit! */
+    margin: 0 auto; /* Centers the text column elegantly */
+}
+
+/* =========================================
+   4. TITLES & TYPOGRAPHY
+   ========================================= */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff; 
+    position: absolute;
+    top: -65px; 
+    left: 40px; 
+    margin: 0;
+    z-index: 8;
+    letter-spacing: -1px;
+    white-space: nowrap; /* <-- ADD THIS LINE! It forces text to stay on one line */
+}
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #050505;
+}
+
+h3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #333;
+}
+
+.page-text h2 {
+    margin-top: 60px; 
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    /* Sleek, thin gold underline instead of a heavy border */
+    border-bottom: 1px solid #D4AF37; 
+}
+
+.page-text h3 {
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.page-text p {
+    margin-bottom: 24px; 
+    line-height: 1.7; 
+    color: #4a4a4a; /* Off-black is easier on the eyes than pure black */
+    font-size: 1.1rem;
+}
+
+.page-text ul {
+    margin-bottom: 32px;
+    margin-left: 0; 
+    padding-left: 20px;
+    line-height: 1.7;
+    color: #4a4a4a;
+}
+
+.page-text li {
+    margin-bottom: 12px;
+}
+
+/* =========================================
+   5. GALLERIES & BUTTONS
+   ========================================= */
+.scrolling-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px; /* More breathing room between images */
+    margin-bottom: 60px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 4px; /* Slightly sharper corners look more premium */
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+.gallery-image:hover {
+    transform: scale(1.02); /* Clean zoom instead of heavy drop shadow */
+}
+
+/* The Theme Button Glow-Up */
+#theme-button {
+    display: inline-block;
+    margin-bottom: 40px; 
+    background-color: transparent;
+    color: #050505;
+    border: 1px solid #050505; 
+    padding: 14px 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#theme-button:hover {
+    background-color: #050505;
+    color: #ffffff;
+}
+
+/* =========================================
+   6. CINEMATIC BACKGROUND VIDEO LAYER
+   ========================================= */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* =========================================
+   7. FIXED BOTTOM CONTACT BAR
+   ========================================= */
+.contact-footer {
+    position: fixed; 
+    bottom: 0;       
+    left: 300px; 
+    width: calc(100% - 300px); /* Perfectly aligns with main content */
+    height: 80px;      
+    background: #050505; /* Solid black instead of gray gradient */
+    color: #ffffff;  
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+    z-index: 5; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   8. RESPONSIVE MEDIA QUERIES
+   ========================================= */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 120px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .contact-footer {
+        left: 0;
+        width: 100%;
+    }
+
+    h1 {
+        left: 20px;
+        top: -55px;
+    }
+}
+/* =========================================
+   9. LIGHTBOX MODAL (Cinematic Overlay)
+   ========================================= */
+.modal {
+    display: none; /* Hidden until JavaScript turns it on */
+    position: fixed; /* Detaches it from the page and floats it on top */
+    z-index: 9999; /* Ensures it sits above your top black bar */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 5, 5, 0.95); /* Deep, luxurious dark tint */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    max-width: 90vw; /* Will never touch the left/right edges */
+    max-height: 85vh; /* Will never touch the top/bottom edges */
+    object-fit: contain; /* Shrinks the image to fit perfectly without distorting */
+    border-radius: 4px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+    animation: modal-fade-in 0.3s ease-out forwards;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #888888;
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000;
+    line-height: 1;
+}
+
+.close-modal:hover {
+    color: #D4AF37; /* Glows gold when hovered */
+}
+
+@keyframes modal-fade-in {
+    from { transform: scale(0.98); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
