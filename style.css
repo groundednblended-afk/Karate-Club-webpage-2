@@ -20,18 +20,6 @@ body {
     z-index: 1;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-position: center 50%; 
-    background-size: 600px; 
-    opacity: 0.03; /* Lowered opacity so it doesn't distract from the text */
-    pointer-events: none; 
-    z-index: 0; 
-    background-image: url('images/symbol-placeholder.svg');
-}
-
 /* =========================================
    1. FIXED TOP BLACK BAR
    ========================================= */
@@ -222,21 +210,7 @@ h3 {
 }
 
 /* =========================================
-   6. CINEMATIC BACKGROUND VIDEO LAYER
-   ========================================= */
-.bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw; 
-    height: 100vh; 
-    object-fit: cover; 
-    z-index: -1; 
-    pointer-events: none; 
-}
-
-/* =========================================
-   7. FIXED BOTTOM CONTACT BAR
+   6. FIXED BOTTOM CONTACT BAR
    ========================================= */
 .contact-footer {
     position: fixed; 
@@ -257,7 +231,7 @@ h3 {
 }
 
 /* =========================================
-   8. RESPONSIVE MEDIA QUERIES
+   7. RESPONSIVE MEDIA QUERIES
    ========================================= */
 @media (max-width: 900px) {
     .sidebar {
@@ -284,7 +258,7 @@ h3 {
     }
 }
 /* =========================================
-   9. LIGHTBOX MODAL (Cinematic Overlay)
+   8. LIGHTBOX MODAL (Cinematic Overlay)
    ========================================= */
 .modal {
     display: none; /* Hidden until JavaScript turns it on */
