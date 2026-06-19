@@ -20,6 +20,18 @@ body {
     z-index: 1;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-position: center 50%; 
+    background-size: 600px; 
+    opacity: 0.03; /* Lowered opacity so it doesn't distract from the text */
+    pointer-events: none; 
+    z-index: 0; 
+    background-image: url('images/symbol-placeholder.svg');
+}
+
 /* =========================================
    1. FIXED TOP BLACK BAR
    ========================================= */
@@ -210,7 +222,21 @@ h3 {
 }
 
 /* =========================================
-   6. FIXED BOTTOM CONTACT BAR
+   6. CINEMATIC BACKGROUND VIDEO LAYER
+   ========================================= */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* =========================================
+   7. FIXED BOTTOM CONTACT BAR
    ========================================= */
 .contact-footer {
     position: fixed; 
@@ -231,7 +257,7 @@ h3 {
 }
 
 /* =========================================
-   7. RESPONSIVE MEDIA QUERIES
+   8. RESPONSIVE MEDIA QUERIES
    ========================================= */
 @media (max-width: 900px) {
     .sidebar {
@@ -258,7 +284,7 @@ h3 {
     }
 }
 /* =========================================
-   8. LIGHTBOX MODAL (Cinematic Overlay)
+   9. LIGHTBOX MODAL (Cinematic Overlay)
    ========================================= */
 .modal {
     display: none; /* Hidden until JavaScript turns it on */
@@ -304,4 +330,43 @@ h3 {
 @keyframes modal-fade-in {
     from { transform: scale(0.98); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+}
+
+/* MOBILE RESPONSIVE RULES */
+@media (max-width: 768px) {
+    /* Stacks the layout vertically */
+    body { 
+        flex-direction: column; 
+    }
+    
+    /* Un-sticks the sidebar and makes it a top header */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative; /* This is the magic word that stops the overlapping */
+        padding: 30px 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    /* Centers your navigation links horizontally */
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .nav-links li { 
+        margin-bottom: 0; 
+    }
+    
+    /* Removes the desktop margin so text aligns properly */
+    .main-content { 
+        margin-left: 0; 
+    }
+    
+    /* Shrinks the padding so text fits on the phone screen */
+    .page-text { 
+        padding: 30px 20px; 
+    }
 }
